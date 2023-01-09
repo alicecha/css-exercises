@@ -8,20 +8,10 @@ body{
   font-weight: 800;
 }
 
-.small-para {
-  font-size: 14px;
-  font-weight: 800;
-}
-
+/* comes before small-para, otherwise overwrites small-para size */
 .para {
   font-size: 22px;
 }
-
-.confirm {
-  background: green;
-  color: white;
-  font-weight: bold;
-} 
 
 .button {
   background-color: rgb(255, 255, 255);
@@ -29,14 +19,28 @@ body{
   font-size: 20px;
 }
 
-.child {
-  color: rgb(0, 0, 0);
-  font-weight: 800;
-  font-size: 14px;
-}
+/* moved below the button selector to take advantage of rule order */
+.confirm {
+  background: green;
+  color: white;
+  font-weight: bold;
+} 
 
 div.text {
   color: rgb(0, 0, 0);
   font-size: 22px;
   font-weight: 100;
 }
+
+/* group small-para and div .child */
+/* move small-para after para to take advantage of rule order */
+/* specify child within div element, otherwise div.text style takes precedence.
+And move after div.text to take advantage of rule order.*/
+.small-para,
+div .child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+
